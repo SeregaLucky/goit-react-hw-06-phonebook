@@ -1,7 +1,7 @@
 /* import - node_modules */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import T from 'prop-types';
-import shortid from 'shortid';
+import useMakeIdRef from '../../servises/useMakeIdRef';
 
 /*
  * COMONENT
@@ -9,13 +9,13 @@ import shortid from 'shortid';
 const ContactForm = ({ addContact }) => {
   /* NAME */
   const [name, setName] = useState('');
-  const idNameRef = useRef(shortid.generate());
+  const idName = useMakeIdRef();
 
   const changeValueName = e => setName(e.target.value);
 
   /* NUMBER */
   const [number, setNumber] = useState('');
-  const idNumberRef = useRef(shortid.generate());
+  const idNumber = useMakeIdRef();
 
   const changeValueNumber = e => setNumber(e.target.value);
 
@@ -33,25 +33,25 @@ const ContactForm = ({ addContact }) => {
     <>
       <p>Add contact:</p>
       <form onSubmit={handleSubmit}>
-        <label htmlFor={idNameRef.current}>
+        <label htmlFor={idName}>
           <span>Name:</span>
           <input
             type="text"
             value={name}
             onChange={changeValueName}
             name="name"
-            id={idNameRef.current}
+            id={idName}
           />
         </label>
 
-        <label htmlFor={idNumberRef.current}>
+        <label htmlFor={idNumber}>
           <span>Number:</span>
           <input
             type="number"
             value={number}
             onChange={changeValueNumber}
             name="number"
-            id={idNumberRef.current}
+            id={idNumber}
           />
         </label>
 
