@@ -1,7 +1,7 @@
 /* import - node_modules */
 import React, { useState } from 'react';
 import T from 'prop-types';
-import useMakeIdRef from '../../servises/useMakeIdRef';
+import useGeneratesRandomStringRef from '../../servises/useGeneratesRandomStringRef';
 
 /*
  * COMONENT
@@ -9,13 +9,13 @@ import useMakeIdRef from '../../servises/useMakeIdRef';
 const ContactForm = ({ addContact }) => {
   /* NAME */
   const [name, setName] = useState('');
-  const idName = useMakeIdRef();
+  const idName = useGeneratesRandomStringRef();
 
   const changeValueName = e => setName(e.target.value);
 
   /* NUMBER */
   const [number, setNumber] = useState('');
-  const idNumber = useMakeIdRef();
+  const idNumber = useGeneratesRandomStringRef();
 
   const changeValueNumber = e => setNumber(e.target.value);
 
