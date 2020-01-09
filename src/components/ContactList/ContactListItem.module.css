@@ -1,0 +1,23 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.item:nth-child(odd) {
+  background: rgb(236, 236, 236);
+}
+.item button {
+  cursor: pointer;
+  padding: 14px 50px;
+  border: none;
+  background-color: crimson;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 3px;
+}
+.item button:focus,
+.item button:hover {
+  transition: 0.2s background-color;
+  background-color: rgb(202, 2, 42);
+}

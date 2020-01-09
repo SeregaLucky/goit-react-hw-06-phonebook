@@ -1,6 +1,9 @@
 /* import - node_modules */
 import React, { useState } from 'react';
 import T from 'prop-types';
+/* import - CSS */
+import styles from './ContactForm.module.css';
+/* import - HOOK */
 import useGeneratesRandomStringRef from '../../servises/useGeneratesRandomStringRef';
 
 /*
@@ -23,6 +26,8 @@ const ContactForm = ({ addContact }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (name === '' || number === '') return;
+
     addContact({ name, number });
 
     setName('');
@@ -31,10 +36,10 @@ const ContactForm = ({ addContact }) => {
 
   return (
     <>
-      <p>Add contact:</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={idName}>
-          <span>Name:</span>
+      <p className={styles.textUpper}>Add contact:</p>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <label htmlFor={idName} className={styles.label}>
+          <span className={styles.spanUppInp}>Name:</span>
           <input
             type="text"
             value={name}
@@ -44,8 +49,8 @@ const ContactForm = ({ addContact }) => {
           />
         </label>
 
-        <label htmlFor={idNumber}>
-          <span>Number:</span>
+        <label htmlFor={idNumber} className={styles.label}>
+          <span className={styles.spanUppInp}>Number:</span>
           <input
             type="number"
             value={number}
@@ -55,7 +60,9 @@ const ContactForm = ({ addContact }) => {
           />
         </label>
 
-        <button type="submit">Add</button>
+        <button type="submit" className={styles.button}>
+          Add
+        </button>
       </form>
     </>
   );

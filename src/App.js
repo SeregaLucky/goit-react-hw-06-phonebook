@@ -1,6 +1,8 @@
 /* import - node_modules */
 import React, { useState, useReducer, useEffect } from 'react';
 import shortid from 'shortid';
+/* import - CSS */
+import styles from './App.module.css';
 /* import - LocalStorage */
 import { saveLocalStorage, getLocalStorage } from './servises/localStorage';
 /* import - COMONENT */
@@ -75,14 +77,16 @@ const App = () => {
   );
 
   return (
-    <>
-      <h1>Phonebook</h1>
-      <ContactForm addContact={addContact} />
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <h1 className={styles.titleMain}>Phonebook</h1>
+        <ContactForm addContact={addContact} />
 
-      <h2>Contacts</h2>
-      <Filter value={filter} onChange={changeValueFilter} />
-      <ContactList list={contactsFilter} deleteContant={deleteContant} />
-    </>
+        <h2 className={styles.title}>Contacts</h2>
+        <Filter value={filter} onChange={changeValueFilter} />
+        <ContactList list={contactsFilter} deleteContant={deleteContant} />
+      </div>
+    </section>
   );
 };
 

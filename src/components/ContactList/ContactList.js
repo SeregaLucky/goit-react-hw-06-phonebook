@@ -1,23 +1,26 @@
 /* import - node_modules */
 import React from 'react';
 import T from 'prop-types';
+/* import - CSS */
+// import styles from './ContactList.module.css';
+/* import - COMONENT */
+import ContactListItem from './ContactListItem';
 
 /*
  * COMONENT
  */
-const ContactList = ({ list, deleteContant }) => (
-  <ul>
-    {list.map(contact => (
-      <li key={contact.id}>
-        <span>{contact.name}</span>
-        <span>{contact.number}</span>
-        <button type="button" onClick={() => deleteContant(contact.id)}>
-          Delete
-        </button>
-      </li>
-    ))}
-  </ul>
-);
+const ContactList = ({ list, deleteContant }) =>
+  list.length > 0 && (
+    <ul>
+      {list.map(contact => (
+        <ContactListItem
+          key={contact.id}
+          contact={contact}
+          deleteContant={deleteContant}
+        />
+      ))}
+    </ul>
+  );
 
 ContactList.propTypes = {
   list: T.arrayOf(
