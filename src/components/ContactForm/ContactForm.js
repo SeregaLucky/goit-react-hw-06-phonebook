@@ -13,13 +13,11 @@ const ContactForm = ({ addContact }) => {
   /* NAME */
   const [name, setName] = useState('');
   const idName = useGeneratesRandomStringRef();
-
   const changeValueName = e => setName(e.target.value);
 
   /* NUMBER */
   const [number, setNumber] = useState('');
   const idNumber = useGeneratesRandomStringRef();
-
   const changeValueNumber = e => setNumber(e.target.value);
 
   /* SUBMIT */

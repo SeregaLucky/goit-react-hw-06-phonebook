@@ -72,7 +72,7 @@ const App = () => {
 
   const changeValueFilter = e => setFilter(e.target.value);
 
-  const contactsFilter = contacts.filter(contact =>
+  const filteredСontacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase()),
   );
 
@@ -84,7 +84,7 @@ const App = () => {
 
         <h2 className={styles.title}>Contacts</h2>
         <Filter value={filter} onChange={changeValueFilter} />
-        <ContactList list={contactsFilter} deleteContant={deleteContant} />
+        <ContactList list={filteredСontacts} deleteContant={deleteContant} />
       </div>
     </section>
   );
